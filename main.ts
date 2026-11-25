@@ -6,7 +6,9 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const WORD = "Meetingmancer";
+const RAW_WORD = "Meetingmancer";
+// Trim any accidental whitespace so the gate never sees a padded word.
+const WORD = RAW_WORD.trim();
 
 if (WORD.length < 1 || WORD.length > 30) {
   throw new Error(`entry must be 1 to 30 characters, got ${WORD.length}`);
